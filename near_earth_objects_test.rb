@@ -23,17 +23,5 @@ class NearEarthObjectsTest < Minitest::Test
     assert_equal Hash, results.class
     assert_equal 3, results.length
   end
-  # def test_largest_asteroid_diameter
-  #   require "pry"; binding.pry
-  #   @neos.formatted_asteroid_data
-  # end
-  #
-  # skip def test_formatted_asteroid_data
-  #   # code
-  # end
-  #
-  # skip def test_total_number_of_asteroids
-  #   # code
-  # end
 
 end
