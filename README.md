@@ -23,19 +23,26 @@ Please follow these instructions for further enlightenment.
 With your partner look through `start.rb` and `near_earth_objects.rb`
 
 - Discuss is this 'good' or 'bad' code? Why?
-
+  Bad code. It is hard to read and has lots of resposibilities packed into one place.
 ---
 
 ### Identify the responsibilities (10 min)
 
 With your Partner, identify the different responsibilities that exist in each file.
 
-- Does this adhere to SRP?
+**near_earth_objects.rb**
+  retrieves & manipulates data from faraday. Returns a hash with the manipulated & condensed data.
 
+
+**start.rb**
+  responsible for formatting and printing all the data that NearEarthObjects is retrieving from faraday.
+
+- Does this adhere to SRP?
+  No big no. The methods are lengthy and classes do not have a single responsibility.
 - How would you utilize encapsulation and abstraction to refactor this code?
 
 - What tools/strategies could you utilize to make this code adhere to SRP?
-
+  Adding helper methods to long methods. Breaking out methods that have different responsibilities into different classes.
 ---
 
 ### Refactor (1 hour)
