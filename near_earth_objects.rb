@@ -7,21 +7,13 @@ Figaro.application = Figaro::Application.new(environment: 'production', path: Fi
 Figaro.load
 
 class NearEarthObjects
-  attr_reader :conn
-  def initialize(date)
-    @conn = Faraday.new( url: 'https://api.nasa.gov',
-                         params: { start_date: date, api_key: ENV['nasa_api_key']})
-  end
 
-  # def method
-  #   # code
-  # end
   def self.find_neos_by_date(date)
-    # conn = Faraday.new(
-    #   url: 'https://api.nasa.gov',
-    #   params: { start_date: date, api_key: ENV['nasa_api_key']}
-    # )
-    asteroids_list_data = @conn.get('/neo/rest/v1/feed')
+    conn = Faraday.new(
+      url: 'https://api.nasa.gov',
+      params: { start_date: date, api_key: ENV['nasa_api_key']}
+    )
+    asteroids_list_data = conn.get('/neo/rest/v1/feed')
 
     parsed_asteroids_data = JSON.parse(asteroids_list_data.body, symbolize_names: true)[:near_earth_objects][:"#{date}"]
 
